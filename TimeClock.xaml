@@ -26,9 +26,9 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="150" />
         </Grid.RowDefinitions>
-        <RelativePanel>
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <ListView ItemsSource="{x:Bind empList}" Margin="25,25,0,0"
+        <RelativePanel Grid.ColumnSpan="2" Margin="0,0,-304,-490" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,-244,-127" >
+                <ListView ItemsSource="{x:Bind empList}" Margin="25,25,0,20"
                       ItemClick="ListView_ItemClick" 
                       IsItemClickEnabled="True" 
                       ItemTemplate="{StaticResource EmployeeListDataTemplate}">

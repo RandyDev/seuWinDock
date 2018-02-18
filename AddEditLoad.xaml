@@ -246,7 +246,7 @@
                         <Button.Flyout>
                             <Flyout x:Name="foCancel">
                                 <StackPanel Margin="20,20,20,20">
-                                    <TextBlock Text="Are you sure you want to cancel?" Margin=" 0,0,0,10" />
+                                    <TextBlock Text="Are you sure you want to xcancel?" Margin=" 0,0,0,10" />
                                     <Button Name="InnerFlyoutButton" HorizontalAlignment="Center" Content="OK"
                                            Click="InnerFlyoutButton_Click" />
                                 </StackPanel>
