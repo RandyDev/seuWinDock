@@ -1,0 +1,104 @@
+﻿<Page
+    x:Class="seuWinDock.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:seuWinDock"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Margin="50,0,0,0" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2.5*" />
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2.5*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Center" Orientation="Vertical"
+                    Grid.Row="1" 
+                    Grid.Column="1" Margin="76,0,75.5,170" Grid.RowSpan="3">
+            <ComboBox Name="LocationComboBox" 
+                      PlaceholderText="Select Location"
+                      SelectionChanged="LocationComboBox_SelectionChanged"
+                      SelectedValuePath="Tag"
+                      HorizontalAlignment="Center"
+                      Width="275" 
+                      FontSize="24">
+                <ComboBoxItem Tag="20DE9B1F-8429-4484-9233-8BC2BD008194">AGS-Birmingham</ComboBoxItem>
+                <ComboBoxItem Tag="53F9F819-2A65-4376-A126-5915A498FB6C">BFS-Louisa</ComboBoxItem>
+                <ComboBoxItem Tag="8F47E2CD-3FD4-4E00-99F2-304514B873FF">BJs-Jacksonville</ComboBoxItem>
+                <ComboBoxItem Tag="CD20DEDD-EA1E-45FF-8E14-F54436A98A41">Burris-Jacksonville</ComboBoxItem>
+                <ComboBoxItem Tag="A037D7AF-C4E9-4AF6-8F95-04A3E6328955">Certco-Madison E</ComboBoxItem>
+                <ComboBoxItem Tag="A4EB9766-6232-4DD4-8AD0-026C45F58836">Certco-Madison V</ComboBoxItem>
+                <ComboBoxItem Tag="154A4D2F-696F-4B93-AF9F-7DAF08A61CDE">CM-Gardiner</ComboBoxItem>
+                <ComboBoxItem Tag="1B68E993-0B66-42CF-9D70-285FA2FE40D2">CWD-Kearney</ComboBoxItem>
+                <ComboBoxItem Tag="F06C87D6-374B-413B-9E4E-C1B58C746AF6">DiCarlo-Holtsville</ComboBoxItem>
+                <ComboBoxItem Tag="044E49DB-D27C-4752-85F5-3169FA8F5D3C">Fernandina</ComboBoxItem>
+                <ComboBoxItem Tag="E53A1906-48D9-45AC-9882-AA6D16106CF0">GW-Smyrna</ComboBoxItem>
+                <ComboBoxItem Tag="016A32FA-7A04-431A-8408-EAF973845018">Halsey-Madison</ComboBoxItem>
+                <ComboBoxItem Tag="CB8C0D45-9100-4357-BE70-329CBEB2CF41">IB-LaVergne</ComboBoxItem>
+                <ComboBoxItem Tag="D6D8C425-3983-4D64-AC1E-D34C5A087D3A">ID-Auburn</ComboBoxItem>
+                <ComboBoxItem Tag="A43A6635-8B54-43CD-89B2-A82E4BFBACEB">Jacksonville</ComboBoxItem>
+                <ComboBoxItem Tag="49DD5E77-8C72-4C40-9AA4-0C8F59EB773B">NFS-Reserve</ComboBoxItem>
+                <ComboBoxItem Tag="C6C3319C-7ED9-4715-852B-6D3DA7ACFE2D">OWG-Olean</ComboBoxItem>
+                <ComboBoxItem Tag="4BB9C28B-643E-43B9-9DC1-1DF3E235CFE3">PFG-City of Industry</ComboBoxItem>
+                <ComboBoxItem Tag="257B7A8E-3F02-49C6-A844-E15EC696C03C">PFG-Dallas</ComboBoxItem>
+                <ComboBoxItem Tag="78953AFE-36D1-478A-A123-4B87B1B651AD">PFG-Houston</ComboBoxItem>
+                <ComboBoxItem Tag="F3F8BE65-B1BA-499D-8F16-0DA7A4AE983D">PFG-Lester</ComboBoxItem>
+                <ComboBoxItem Tag="6353EEB6-2528-4D61-A0E1-398BDCDF68B8">PFG-Livermore</ComboBoxItem>
+                <ComboBoxItem Tag="138B291D-BC13-4EDB-99DE-B7491DE908D0">PFG-Richmond</ComboBoxItem>
+                <ComboBoxItem Tag="64699684-0537-4697-8E82-803CCE66CEA1">PFG-Temple</ComboBoxItem>
+                <ComboBoxItem Tag="BB07D9A1-EC65-412B-89AD-FA5CC892DC8E">PW-Bessemer</ComboBoxItem>
+                <ComboBoxItem Tag="B7CB741A-E260-41D6-8513-F0796A9EC7E9">SWS-New Bedford</ComboBoxItem>
+                <ComboBoxItem Tag="BCF4007B-0063-4B5E-BE31-DF26E8AC2D3B">TCE-Jacksonville</ComboBoxItem>
+                <ComboBoxItem Tag="644DB232-C00E-49F0-9807-1565536A15BC">TCE-Lakeland</ComboBoxItem>
+                <ComboBoxItem Tag="D634058D-9A80-4B09-BF5E-5B4BFA97F860">VE-Grand Rapids</ComboBoxItem>
+                <ComboBoxItem Tag="F5853371-6DC8-458A-8724-50F49D59F816">WF-Irondale</ComboBoxItem>
+            </ComboBox>
+            <TextBlock Name="txtLoca" Text="if Location List is empty" 
+                       HorizontalAlignment="Center"
+                       FontWeight="SemiBold"
+                       Foreground="Red" 
+                       Margin="0,30,0,0" />
+            <Button Name="btnDownloadLocations" HorizontalAlignment="Center" Click="btnDownloadLocations_Click" FontSize="24" Margin="0,10,0,0">Download Locations</Button>
+
+            <ProgressRing Name="LocaProgressRing"
+                          HorizontalAlignment="Center"
+                          Margin="0,10,0,0"
+                          Width="50"
+                          Height="50"
+                          IsActive="False" />
+        </StackPanel>
+
+        <StackPanel Orientation="vertical" 
+                    Grid.Row="1" 
+                    Grid.Column="1"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left">
+
+            <ProgressRing Name="SnapshotProgressRing"
+                          Margin="0,0,0,10" 
+                          Width="50"
+                          Height="50"
+                          IsActive="False"
+                          HorizontalAlignment="Center" />
+            <TextBlock Name="txtSnapshot"
+                       Text="Only when directed by IT Department" 
+                       FontSize="17"
+                       FontWeight="SemiBold"
+                       Foreground="red"
+                       Margin="0,0,0,10" 
+                       HorizontalAlignment="Center" />
+            <Button Name="btnDownloadSnapshot" 
+                        Click="btnDownloadSnapshot_Click" 
+                        FontSize="24" 
+                        HorizontalAlignment="Center">Download Snapshot</Button>
+
+        </StackPanel>
+
+    </Grid>
+</Page>

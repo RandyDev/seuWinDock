@@ -1,0 +1,261 @@
+﻿<Page
+    x:Class="seuWinDock.AddEditLoad"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:seuWinDock"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <!--**** SECTION ONE ****-->
+
+    <Grid Background="#FF65BAF5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Column="1">
+            <!--**** SECTION ONE ****-->
+            <StackPanel Orientation="Vertical" Background="#FFE6FFE6" Margin="0,10,0,0" FocusVisualPrimaryBrush="#FFF2F9F2">
+                <!--**** ROW ONE ****-->
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Load Number"/>
+                        <TextBox Name="txtLoadNumber" FontSize="24" PlaceholderText="Load #" PlaceholderForeground="PaleVioletRed"  />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Door #"/>
+                        <TextBox Name="txtDoorNumber" FontSize="24" PlaceholderText="Dr.#"  PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Carrier"/>
+                        <TextBlock Text="Tap or Click to Select Carrier"
+                                   Name="TBcarriers"
+                                   Tapped="TBcarriers_Tapped" 
+                                   Foreground="PaleVioletRed" 
+                                   FontSize="24">
+                            <TextBlock.ContextFlyout>
+                                <Flyout x:Name="CarrierFlyout">
+                                    <ComboBox>
+                                        <ComboBoxItem Name="BadHabit" Content="Bad Habit"/>
+                                        <ComboBoxItem Name="American" Content="American"/>
+                                        <ComboBoxItem Name="billybob" Content="Billy Bob"/>
+                                    </ComboBox>
+                                    
+                                </Flyout>
+                               
+                            </TextBlock.ContextFlyout>
+                        </TextBlock>
+                            
+                    </StackPanel>
+                </StackPanel>
+                <!--**** ROW TWO ****-->
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Truck Number"/>
+                        <TextBox Name="txtTruckNumber" FontSize="24" PlaceholderText="Truck #" PlaceholderForeground="PaleVioletRed"  />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Trailer Number"/>
+                        <TextBox Name="txtTrailerNumber" FontSize="24" PlaceholderText="Trailer #" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Purchase Order"/>
+                        <TextBox Name="txtPurchaseOrder" FontSize="24" PlaceholderText="P.O. #" PlaceholderForeground="PaleVioletRed"  />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Department" FocusVisualPrimaryBrush="#FFDDFFDD"/>
+                        <ComboBox Name="cbDepartment" FontSize="24" Margin="0,0,10,0"  PlaceholderText="Select Department." PlaceholderForeground="PaleVioletRed" FocusVisualPrimaryBrush="#FF3FB25F">
+                            <ComboBoxItem Name="Freezer" Content="Freezer" />
+                            <ComboBoxItem Name="General" Content="General" />
+                            <ComboBoxItem Name="Grocery" Content="Grocery" />
+                            <ComboBoxItem Name="Perishable" Content="Perishable" />
+                            <ComboBoxItem Name="Produce" Content="Produce" />
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <!--**** SECTION TWO ****-->
+            <StackPanel Orientation="Vertical" Background="#FFD2FAD2" FocusVisualPrimaryBrush="Lime">
+                <!--**** ROW ONE ****-->
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Vendor Number" />
+                        <TextBox Name="txtVendorNumber" FontSize="24" Width="100" PlaceholderText="Vendor#" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                    <TextBlock Name="txtVendorName" Margin="30,25,0,0"  FontSize="24" Width="400" Text="PlaceHolder for Vendor Name" Foreground="PaleVioletRed" />
+                </StackPanel>
+                <!-- **** ROW TWO -->
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Pallets Unloaded" />
+                        <TextBox Name="txtPalletsUnloaded" HorizontalAlignment="Left" FontSize="24" PlaceholderText="---" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Pieces" />
+                        <TextBox Name="txtPieces" FontSize="24" PlaceholderText="----" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Load Description" />
+                        <ComboBox Name="cbLoadDescription" FontSize="24"  PlaceholderText="Select Description" PlaceholderForeground="PaleVioletRed">
+                            <ComboBoxItem Name="Breakdown" Content="Breakdown" />
+                            <ComboBoxItem Name="Breakdownds" Content="Breakdown ds" />
+                            <ComboBoxItem Name="Breakdownpw" Content="Breakdown pw" />
+                            <ComboBoxItem Name="Breakdownpwds" Content="Breakdown pw ds" />
+                            <ComboBoxItem Name="FloorLoad" Content="Floor Load" />
+                            <ComboBoxItem Name="PullOff" Content="PullOff" />
+                            <ComboBoxItem Name="PullOffds" Content="PullOff ds" />
+                            <ComboBoxItem Name="PullOffpw" Content="PullOff pw" />
+                            <ComboBoxItem Name="PullOffpwds" Content="PullOff pw ds" />
+                            <ComboBoxItem Name="SlipLoad" Content="Slip Load" />
+                            <ComboBoxItem Name="Slipds" Content="Slip ds" />
+                            <ComboBoxItem Name="Slippw" Content="Slip pw" />
+                            <ComboBoxItem Name="Slippwds" Content="Slip pw ds" />
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+                <!-- **** ROW THREE -->
+                <StackPanel Orientation="Vertical" Margin="10,0,0,0">
+                    <TextBlock Text="Unloaders" />
+                    <TextBlock Name="TBunloaders" Text="Tap or Click to Select Unloaders" Tapped="TBunloaders_Tapped" FontSize="24" Foreground="PaleVioletRed" />
+                </StackPanel>
+            </StackPanel>
+            <!--**** SECTION THREE ****-->
+            <StackPanel Orientation="Vertical" Background="#FFBEFFBE">
+                <!--**** ROW ONE ****-->
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Pallets Rcd" />
+                        <TextBox x:Name="txtPalletsReceived" FontSize="24" PlaceholderText="---" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Appointment Time" />
+                        <TimePicker x:Name="tpAppointmentTime"
+                                    ClockIdentifier="12HourClock"
+                                    FontSize="24" 
+                                    VerticalAlignment="Center" />
+
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Gate Time" />
+                        <TextBlock  Text="00:00 AM" FontSize="24" Foreground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Arrival Time" />
+                        <TextBlock Text="00:00 AM" FontSize="24" Foreground="PaleVioletRed" />
+                    </StackPanel>
+                </StackPanel>
+                <!--**** ROW TWO ****-->
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Start Time" />
+                        <TextBlock Text="00:00 AM" FontSize="24" Foreground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Comp Time" />
+                        <TextBlock Text="00:00 AM" FontSize="24" Foreground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Total Time" />
+                        <TextBlock Text="00:00" FontSize="24" Foreground="Gray" />
+                    </StackPanel>
+                </StackPanel>
+                <!--**** ROW THREE ****-->
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Bad Pallets" />
+                        <TextBox x:Name="txtBadPallets" FontSize="24" PlaceholderText="---" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Weight" />
+                        <TextBox x:Name="txtWeight" FontSize="24" PlaceholderText="----" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Restacks" />
+                        <TextBox x:Name="txtRestacks" FontSize="24" PlaceholderText="---" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Total Items" />
+                        <TextBox x:Name="txtTotalItems" FontSize="24" PlaceholderText="---" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Load Type" />
+                        <ComboBox x:Name="cbLoadType" FontSize="24" Margin="10,0,0,0" PlaceholderText="Select Load Type" PlaceholderForeground="PaleVioletRed">
+                            <ComboBoxItem x:Name="ThirdParty" Content="3rdParty" />
+                            <ComboBoxItem x:Name="Backhaul" Content="Backhaul" />
+                            <ComboBoxItem x:Name="Cash" Content="Cash" />
+                            <ComboBoxItem x:Name="CreditCard" Content="Credit Card" />
+                            <ComboBoxItem x:Name="DriverLoad" Content="Driver Load" />
+                            <ComboBoxItem x:Name="Inbound" Content="Inbound" />
+                            <ComboBoxItem x:Name="Invoice" Content="Invoice" />
+                            <ComboBoxItem x:Name="Manufacturers" Content="Manufacturers" />
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <!--**** SECTION FOUR ****-->
+            <StackPanel Orientation="Vertical" Background="#FFAAFFAA">
+                <!--**** ROW ONE ****-->
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0" >
+                    <RadioButton GroupName="rbPaymentType" FontSize="24" Content="Cash" Name="rbCash" />
+                        <RadioButton GroupName="rbPaymentType" FontSize="24" Content="Check" Name="rbCheck" />
+                        <RadioButton GroupName="rbPaymentType" FontSize="24" Content="Card" Name="rbCard" />
+                        <RadioButton GroupName="rbPaymentType" FontSize="24" Content="Split Amount" Name="rbSplit" />
+                </StackPanel>
+                <!--**** ROW TWO ****-->
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Amount" />
+                        <TextBox Name="txtAmount"  FontSize="24" PlaceholderText="$0.0" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Check/Transaction #" />
+                        <TextBox Name="txtCheckNumber" FontSize="24" PlaceholderText="Check / Transaction #" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Text="Split Amount" FocusVisualPrimaryBrush="#54000000" />
+                        <TextBox Name="txtSplit" FontSize="24" PlaceholderText="$0.0" Margin="10,0,0,0" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                </StackPanel>
+                <!--**** ROW THREE ****-->
+                <StackPanel Orientation="Horizontal" Margin="10,12,0,10">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="BOL / PRO / SEAL#" VerticalAlignment="Center" />
+                        <TextBox Name="txtBOL" Margin="20,0,12,0" FontSize="24" PlaceholderText="BOL" PlaceholderForeground="PaleVioletRed" />
+                    </StackPanel>
+                </StackPanel>
+                <!--**** ROW FOUR ****-->
+                <StackPanel Orientation="Vertical" Margin="10,0,10,0">
+                    <TextBlock Text="Comments" />
+                    <TextBox Name="txtComments" Width="635" MinHeight="96" HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="24" PlaceholderText="Comments" PlaceholderForeground="PaleVioletRed" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btnSave" Grid.Column="1" Content="SAVE" />
+                    <Button Name="btnCancel" Grid.Column="3" Content="Cancel">
+                        <Button.Flyout>
+                            <Flyout x:Name="foCancel">
+                                <StackPanel Margin="20,20,20,20">
+                                    <TextBlock Text="Are you sure you want to cancel?" Margin=" 0,0,0,10" />
+                                    <Button Name="InnerFlyoutButton" HorizontalAlignment="Center" Content="OK"
+                                           Click="InnerFlyoutButton_Click" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

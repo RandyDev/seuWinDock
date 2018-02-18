@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="seuWinDock.TimeClock"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:seuWinDock"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data ="using:seuWinDock.Models"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:DataType="data:Unloader" x:Key="EmployeeListDataTemplate">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock FontSize="24" Text="{x:Bind EmployeeName}" />
+            </StackPanel>
+
+        </DataTemplate>
+    </Page.Resources>
+
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="150" />
+        </Grid.RowDefinitions>
+        <RelativePanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <ListView ItemsSource="{x:Bind empList}" Margin="25,25,0,0"
+                      ItemClick="ListView_ItemClick" 
+                      IsItemClickEnabled="True" 
+                      ItemTemplate="{StaticResource EmployeeListDataTemplate}">
+                </ListView>
+            </StackPanel>
+        </RelativePanel>
+        <StackPanel Grid.Column="1" Margin="0,25,0,1"  Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="left" Grid.RowSpan="2" Width="666">
+            <RelativePanel>
+                <TextBlock Text="TO DO" Name="todo" FontSize="20" Margin="0,0,0,0" FontWeight="SemiBold"></TextBlock>
+                <TextBlock RelativePanel.Below="todo" TextWrapping="Wrap" Margin="0,0,0,0"  FontSize="20" Width="516" Height="219">
+            This dual purpose page (Clock IN and Clock OUT to show a color coded list of those on or off the clock as is appropriate for the button tapped or clicked.<LineBreak />
+            Clock IN screen will show everyone not on the clock with those on Break at the top.<LineBreak />
+            Clock OUT screen will show everyone on the clock<LineBreak />
+            Tapping a Name will result in a flyout prompting for the Employee Passcode.        
+                </TextBlock>
+            </RelativePanel>
+        </StackPanel>
+        <RelativePanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+           
+        <PersonPicture Name="perspic" HorizontalAlignment="Left" Margin="10,0,10,0" BadgeText="Text" VerticalAlignment="Center" BadgeNumber="3" />
+        <TextBlock Name="txtresult" RelativePanel.RightOf="perspic" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" FontSize="22" HorizontalAlignment="Center" />
+        </RelativePanel>
+
+    </Grid>
+</Page>
